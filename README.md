@@ -9,3 +9,5 @@
 파이썬과 자바차이점 공부하고 구글캘린더에 API 활용한 데이터집어넣기 연습예제 공부
 
 2022년 12월 26일 google Api console 생성 및 Api권한주기 완료
+
+2022년 12월 28일 calender insert , update 완료
