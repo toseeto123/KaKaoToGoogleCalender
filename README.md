@@ -11,3 +11,6 @@
 2022년 12월 26일 google Api console 생성 및 Api권한주기 완료
 
 2022년 12월 28일 calender insert , update 완료
+
+2022년 12월 29일 python 기초문법 관련 공부 완료
+2022년 12월 31일 HTTP API 사용으로 python tutorial 시작
