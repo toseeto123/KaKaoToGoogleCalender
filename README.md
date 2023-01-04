@@ -14,3 +14,5 @@
 
 2022년 12월 29일 python 기초문법 관련 공부 완료
 2022년 12월 31일 HTTP API 사용으로 python tutorial 시작
+
+20231 1월 5일 Google.py 파일 test.py 파일 업로드
