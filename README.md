@@ -17,4 +17,4 @@
 
 2023년 1월 5일 Google.py 파일 test.py 파일 업로드
 
-2023년 1워 6일 update.py // delete.py 파일 업로드 (insert~update~delete 구간까지 들어가있는 파일 업로드)
+2023년 1월 6일 update.py // delete.py 파일 업로드 (insert~update~delete 구간까지 들어가있는 파일 업로드)
