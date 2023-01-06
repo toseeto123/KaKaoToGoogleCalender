@@ -1,17 +1,78 @@
-# eventId : 일정을 조회한 후 얻은 id 값을 말합니다.
-# 먼저 수정할 일정을 가져옵니다.
-# 방법 1 : get 함수를 통해서 가져오기
-# eventId = 'fraof7dh0g0ene8kdcfl3hg4p4_20200213T000000Z'
-# event = service.events().get(calendarId='primary', eventId=eventId).execute()
-# 방법 2 : list 함수에서 반환된 일정 사용하기
-event = events_result.get('items')[0]
-event_id = event.get('id')
+from pprint import pprint
+from Google import Create_Service, convert_to_RFC_datetime
 
-# 원하는 일정의 속성 값을 변경합니다.
-event['summary'] = "(수정된)" + event['summary']
+CLIENT_SECRET_FILE='credentials.json'
+API_NAME='calendar'
+API_VERSION='v3'
+SCOPES=['https://www.googleapis.com/auth/calendar']
 
-# 일정 수정 요청하기
-updated_event = service.events().update(calendarId='primary', eventId=event_id, body=event).execute()
+service=Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
 
-updated_event
-# 제목이 "(수정된)itsplay의 OpenAPI 수업"로 바뀌었습니다.
+# 캘린더 id는 구글캘린더 내부에서 직접적으로 확인도 가능함.
+calendar_id='8d762569ee30e088994ea3a39d894a289a99bdb4792c960ff6b9c220cfeb5dbe@group.calendar.google.com'
+
+# create an event
+colors = service.colors().get().execute()
+pprint(colors)
+
+#필요없는 조정 adjustment일수있음.
+hour_adjustment=-1
+event_request_body={
+    'start': {
+      'dateTime': convert_to_RFC_datetime(2023,1,5,12 + hour_adjustment,30),
+      'timeZone': 'Asia/Taipei'
+    },
+    'end':{
+        'dateTime': convert_to_RFC_datetime(2023,1,5,12 + hour_adjustment,30),
+        'timeZone': 'Asia/Taipei'
+    },
+    'summary': '가족식사',
+    'description': '부모님과 저녁먹기',
+    'colorId': 5,
+    'status':'confirmed',
+    'transparency': 'opaque',
+    'visibility': 'private',
+    'location' : 'seoul',
+    'attendees':[
+        {
+            'displayName':'JJ',
+            'comment':' I enjoy coding',
+            'email': 'taipoone@naver.com',
+            'optional': False,
+            'organizer': True,
+            'responseStatus':'accepted'
+        }
+    ]
+}
+
+maxAttendees=5
+sendNotification=True
+sendUpdate='none'
+supportsAttachments=True
+
+response =service.events().insert(
+    calendarId=calendar_id,
+    maxAttendees=maxAttendees,
+    sendNotifications=sendNotification,
+    sendUpdates=sendUpdate,
+    supportsAttachments=supportsAttachments,
+    body=event_request_body
+).execute()
+
+pprint(response)
+
+###update 구간
+
+eventId=response['id']
+
+###update 구간 코드
+start_dateTime= convert_to_RFC_datetime(2023 , 1 , 5 ,18 + hour_adjustment,30)
+end_dateTime= convert_to_RFC_datetime(2023 , 1 , 6, 20 + hour_adjustment, 30)
+response['start']['dateTime']=start_dateTime
+response['end']['dateTime']=end_dateTime
+response['summary'] = '바비파티로 수정 업데이트'
+response['Description']='파뤼파뤼투나잇'
+service.events().update(
+    calendarId=calendar_id,
+    eventId=eventId,
+    body=response).execute()
