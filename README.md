@@ -18,3 +18,5 @@
 2023년 1월 5일 Google.py 파일 test.py 파일 업로드
 
 2023년 1월 6일 update.py // delete.py 파일 업로드 (insert~update~delete 구간까지 들어가있는 파일 업로드)
+
+2023년 1월 6일 event의 list.py 업로드 완료 (프로젝트용 캘린더id에 입력된 내용만 호출)
