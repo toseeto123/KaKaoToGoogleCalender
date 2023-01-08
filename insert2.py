@@ -28,11 +28,11 @@ event = {
         'location': '서울특별시 종로구 하이미디어', # 일정 장소
         'description': 'itsplay와 OpenAPI 실행중.', # 일정 설명
         'start': { # 시작 날짜
-            'dateTime': '2022-12-27T12:00:00', 
+            'dateTime': '2023-01-11T12:00:00',
             'timeZone': 'Asia/Seoul',
         },
         'end': { # 종료 날짜
-            'dateTime': '2022-12-27T15:00:00', 
+            'dateTime': '2022-01-11T15:00:00',
             'timeZone': 'Asia/Seoul',
         },
     }

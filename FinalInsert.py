@@ -11,19 +11,24 @@ service=Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
 # 캘린더 id는 구글캘린더 내부에서 직접적으로 확인도 가능함.
 calendar_id='8d762569ee30e088994ea3a39d894a289a99bdb4792c960ff6b9c220cfeb5dbe@group.calendar.google.com'
 
-#필요없는 조정 adjustment일수있음.
+# # create an event
+# colors = service.colors().get().execute()
+# pprint(colors)
+
+#insert 구간
+#필요없는 조정 adjustment일수있음. 왜냐면 시간조정용 이니깐..
 hour_adjustment=-1
 event_request_body={
     'start': {
-      'dateTime': convert_to_RFC_datetime(2023,1,8,5 + hour_adjustment,30),
+      'dateTime': convert_to_RFC_datetime(2023,1,8,12 + hour_adjustment,30),
       'timeZone': 'Asia/Taipei'
     },
     'end':{
-        'dateTime': convert_to_RFC_datetime(2023,1,8,6 + hour_adjustment,30),
+        'dateTime': convert_to_RFC_datetime(2023,1,8,15 + hour_adjustment,30),
         'timeZone': 'Asia/Taipei'
     },
-    'summary': '가족식사',
-    'description': '부모님과 저녁먹기',
+    'summary': 'API Insert 2',
+    'description': 'Final insert',
     'colorId': 5,
     'status':'confirmed',
     'transparency': 'opaque',
@@ -31,7 +36,7 @@ event_request_body={
     'location' : 'seoul',
     'attendees':[
         {
-            'displayName':'JJ',
+            'displayName':'nsnsnsns',
             'comment':' I enjoy coding',
             'email': 'taipoone@naver.com',
             'optional': False,
@@ -41,7 +46,7 @@ event_request_body={
     ]
 }
 
-maxAttendees=5
+maxAttendees=1
 sendNotification=True
 sendUpdate='none'
 supportsAttachments=True
@@ -56,25 +61,3 @@ response =service.events().insert(
 ).execute()
 
 pprint(response)
-###update 구간
-
-eventId=response['id']
-
-###update 구간 코드
-start_dateTime= convert_to_RFC_datetime(2023 , 1 , 8, 5 + hour_adjustment, 30)
-end_dateTime= convert_to_RFC_datetime(2023 , 1 , 8, 6 + hour_adjustment, 30)
-response['start']['dateTime']=start_dateTime
-response['end']['dateTime']=end_dateTime
-response['summary'] = '수정업데이트 222'
-response['Description']='업데이트실행완료'
-service.events().update(
-    calendarId=calendar_id,
-    eventId=eventId,
-    body=response).execute()
-
-## delete 구간 코드
-
-service.events().delete(
-    calendarId=calendar_id,
-    eventId=eventId).execute()
-
