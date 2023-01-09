@@ -20,14 +20,14 @@ calendar_id='8d762569ee30e088994ea3a39d894a289a99bdb4792c960ff6b9c220cfeb5dbe@gr
 hour_adjustment=-1
 event_request_body={
     'start': {
-      'dateTime': convert_to_RFC_datetime(2023,1,8,12 + hour_adjustment,30),
+      'dateTime': convert_to_RFC_datetime(2023,1,9,12 + hour_adjustment,30),
       'timeZone': 'Asia/Taipei'
     },
     'end':{
-        'dateTime': convert_to_RFC_datetime(2023,1,8,15 + hour_adjustment,30),
+        'dateTime': convert_to_RFC_datetime(2023,1,9,15 + hour_adjustment,30),
         'timeZone': 'Asia/Taipei'
     },
-    'summary': 'API Insert 2',
+    'summary': 'API Insert 2222',
     'description': 'Final insert',
     'colorId': 5,
     'status':'confirmed',
