@@ -1,7 +1,7 @@
 from pprint import pprint
 from Google import Create_Service, convert_to_RFC_datetime
 
-CLIENT_SECRET_FILE='credentials.json'
+CLIENT_SECRET_FILE= '../../credentials.json'
 API_NAME='calendar'
 API_VERSION='v3'
 SCOPES=['https://www.googleapis.com/auth/calendar']
