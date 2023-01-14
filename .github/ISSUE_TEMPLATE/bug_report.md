@@ -7,32 +7,22 @@ assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+** error or bug 설명**
+간단한 문제점 관련 설명 
 
-**To Reproduce**
-Steps to reproduce the behavior:
+** 에러 구간 설명**
+에러 구간 폴더 - > 해당파일 -> 해당 구간
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
 4. See error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**예상 해결책 설명**
+예상 해결책 관련 설명
 
-**Screenshots**
+** 문제점 스크린샷 (필요시 추가)**
 If applicable, add screenshots to help explain your problem.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+**추가 코멘트 **
+다른 추가 코멘트 부분
