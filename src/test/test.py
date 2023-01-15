@@ -67,52 +67,51 @@ pprint(response)
 ###update 구간
 
 eventId=response['id']
-#
+
 # ###update 구간 코드
-# start_dateTime= convert_to_RFC_datetime(2023 , 1 , 5 ,18 + hour_adjustment,30)
-# end_dateTime= convert_to_RFC_datetime(2023 , 1 , 6, 20 + hour_adjustment, 30)
-# response['start']['dateTime']=start_dateTime
-# response['end']['dateTime']=end_dateTime
-# response['summary'] = '바비파티로 수정 업데이트'
-# response['Description']='파뤼파뤼투나잇'
-# service.events().update(
-#     calendarId=calendar_id,
-#     eventId=eventId,
-#     body=response).execute()
-#
+start_dateTime= convert_to_RFC_datetime(2023 , 1 , 5 ,18 + hour_adjustment,30)
+end_dateTime= convert_to_RFC_datetime(2023 , 1 , 6, 20 + hour_adjustment, 30)
+response['start']['dateTime']=start_dateTime
+response['end']['dateTime']=end_dateTime
+response['summary'] = '바비파티로 수정 업데이트'
+response['Description']='파뤼파뤼투나잇'
+service.events().update(
+    calendarId=calendar_id,
+    eventId=eventId,
+    body=response).execute()
+
 # ##delete 구간
-# service.events().delete(calendarId=calendar_id,eventId=eventId).execute()
-#
+service.events().delete(calendarId=calendar_id,eventId=eventId).execute()
+
+
 # #list 이벤트 구간
-# today = datetime.date.today().isoformat()
-# time_min = today + 'T00:00:00+09:00'
-# time_max = today + 'T23:59:59+09:00'
-# max_results = 5
-# is_single_events = True
-# orderby = 'startTime'
-#
-# response = service.events().list(
-#         calendarId=calendar_id,
-#         timeMin=time_min,
-#         timeMax=time_max,
-#         maxResults=250,
-#         singleEvents=is_single_events,
-#         orderBy=orderby
-# ).execute()
-# calendarItems = response.get('items')
-# nextPageToken = response.get('nextPageToken')
-#
-# while nextPageToken:
-#     response = service.events().list(
-#         maxResults=250,
-#         showDeleted=False,
-#         showHidden=False,
-#         pageToken=nextPageToken
-#     ).execute()
-#     calendarItems = extend(response.get('items'))
-#     nextPageToken = response.get('nextPageToken')
-#
-# pprint(calendarItems)
-#
-#
-#
+today = datetime.date.today().isoformat()
+time_min = today + 'T00:00:00+09:00'
+time_max = today + 'T23:59:59+09:00'
+max_results = 5
+is_single_events = True
+orderby = 'startTime'
+
+response = service.events().list(
+        calendarId=calendar_id,
+        timeMin=time_min,
+        timeMax=time_max,
+        maxResults=250,
+        singleEvents=is_single_events,
+        orderBy=orderby
+).execute()
+calendarItems = response.get('items')
+nextPageToken = response.get('nextPageToken')
+
+while nextPageToken:
+    response = service.events().list(
+        maxResults=250,
+        showDeleted=False,
+        showHidden=False,
+        pageToken=nextPageToken
+    ).execute()
+    calendarItems = extend(response.get('items'))
+    nextPageToken = response.get('nextPageToken')
+
+pprint(calendarItems)
+
